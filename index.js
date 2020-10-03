@@ -41,6 +41,10 @@ client.connect((err) => {
     console.log(newBooking);
   });
 
+  app.get('/', (req, res) => {
+    res.send("working properly");
+  })
+
   app.get("/booking", (req, res) => {
   const bearer = req.headers.authorization;
     if(bearer && bearer.startsWith('Bearer ')){
@@ -79,4 +83,4 @@ app.get("/", (req, res) => {
   res.send("Hello Shawon Ahmed!");
 });
 
-app.listen(port);
+app.listen(process.env.PORT ||port);
